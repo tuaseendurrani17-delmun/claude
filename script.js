@@ -12,7 +12,7 @@ const P=[
 ["Matrix-Multiplier",null],["Genetics-Modifier",null],
 ["Restuarant-Management-System",null],["Library-Management-System",null],["Election-Management-System",null]];
 const box=document.getElementById('projects');
-if(box)box.innerHTML=P.map(([n,d])=>`<article class="card"><h3>${n.replace(/-/g,' ')}</h3><p>${d||'Description: missing information.'}</p><p style="margin-top:10px"><a href="https://github.com/tuaseendurrani/${n}" target="_blank" rel="noopener">View repository</a></p></article>`).join('');
+if(box&&document.body.classList.contains('cs'))box.innerHTML=P.map(([n,d])=>`<article class="card"><h3>${n.replace(/-/g,' ')}</h3><p>${d||'Description: missing information.'}</p><p style="margin-top:10px"><a href="https://github.com/tuaseendurrani/${n}" target="_blank" rel="noopener">View repository</a></p></article>`).join('');
 // Cyber typing line
 const t=document.getElementById('typed');
 if(t){const s='Investigating threats. Studying human and machine weaknesses.';let i=0;(function f(){t.textContent=s.slice(0,i++);if(i<=s.length)setTimeout(f,35)})()}
@@ -27,13 +27,13 @@ const cv=document.getElementById('rain');
 if(cv&&!rm){const x=cv.getContext('2d');let d=[];const fit=()=>{cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;d=Array(Math.ceil(cv.width/16)).fill(0)};fit();addEventListener('resize',fit);
 setInterval(()=>{x.fillStyle='rgba(6,3,11,.15)';x.fillRect(0,0,cv.width,cv.height);x.fillStyle='#a855f7';x.font='14px monospace';d.forEach((y,i)=>{x.fillText('01ABCDEF<>/{}'[Math.random()*13|0],i*16,y*16);d[i]=y*16>cv.height&&Math.random()>.97?0:y+1})},70)}
 const tm=document.getElementById('term');
-if(tm){const L=['> opening case file TD-17','> listing credentials... 6 exhibits found','> issuers: Google, Packt, HP, Vanderbilt, PKCERT','> status: records ready for review'];let a=0,b=0;(function n(){if(a>=L.length)return;tm.textContent+=L[a][b++]||'';if(b>=L[a].length){tm.textContent+='\n';a++;b=0;setTimeout(n,350)}else setTimeout(n,rm?0:22)})()}
+if(tm){const L=['> opening case file TD-17','> listing credentials... 9 exhibits found','> issuers: Google, Packt, HP, Vanderbilt, PKCERT, Huawei','> status: records ready for review'];let a=0,b=0;(function n(){if(a>=L.length)return;tm.textContent+=L[a][b++]||'';if(b>=L[a].length){tm.textContent+='\n';a++;b=0;setTimeout(n,350)}else setTimeout(n,rm?0:22)})()}
 // ---- v3: timeline ----
 const SEMS=window.SEM||[],tlx=document.getElementById('tlx');
 if(tlx){document.getElementById('cgpa').textContent=window.CGPA||'n/a';const dd=document.getElementById('tld');
 const show=n=>{const s=SEMS.find(x=>x.n===n);[...tlx.children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.n==n));
-dd.innerHTML=s?`<h3>Semester ${n}</h3><p>SGPA: <b>${s.sgpa}</b></p><p>Top courses: ${s.top.join(', ')}</p>`:`<h3>Semester ${n}</h3><p class="miss">Not completed yet.</p>`};
-for(let n=1;n<=8;n++){const b=document.createElement('button');b.className='nd'+(SEMS.some(x=>x.n===n)?' done':'');b.dataset.n=n;b.textContent='Semester '+n;b.onclick=()=>show(n);tlx.append(b)}
+dd.innerHTML=s?`<h3>Semester ${n}${s.progress?' <span class="tag">In progress</span>':''}</h3>${s.progress?'':`<p>SGPA: <b>${s.sgpa}</b></p><p style="margin-top:8px">Top courses: ${s.top.map(c=>`<span class="tag hi">${c}</span>`).join('')}</p>`}<p style="margin-top:12px">All courses (${s.all.length})</p><ul class="cl">${s.all.map(c=>`<li${s.top&&s.top.includes(c)?' class="hi"':''}>${c}</li>`).join('')}</ul>`:`<h3>Semester ${n}</h3><p class="miss">Not completed yet.</p>`};
+for(let n=1;n<=8;n++){const b=document.createElement('button');b.className='nd'+(SEMS.some(x=>x.n===n&&!x.progress)?' done':'');b.dataset.n=n;b.textContent='Semester '+n;b.onclick=()=>show(n);tlx.append(b)}
 show(Math.max(1,...SEMS.map(x=>x.n)))}
 // ---- v3: developer mode (footer click) ----
 const pg=['cs','cy','vid'].find(c=>document.body.classList.contains(c));
