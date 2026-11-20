@@ -1,4 +1,4 @@
-:root{--bg:#09090b;--bg2:#16161a;--fg:#ececf0;--mut:#9b9ba6;--ac:#c4c8d0;--ac2:#fff;--bd:#2c2c33;--ff:'Inter',system-ui,sans-serif}
+:root{--bg:#070504;--bg2:#15100d;--fg:#f6f1ec;--mut:#aa9f96;--ac:#ff7a1a;--ac2:#ffa959;--bd:#33241b;--ff:'Inter',system-ui,sans-serif}
 body.cs{--bg:#040a1c;--bg2:#0a1636;--fg:#e6efff;--mut:#8fa3cc;--ac:#3b8cff;--ac2:#8dbcff;--bd:#1a3270}
 body.cy{--bg:#06030b;--bg2:#120a1d;--fg:#ece6f5;--mut:#a592bd;--ac:#a855f7;--ac2:#dcb8ff;--bd:#3d2060;--ff:'JetBrains Mono',ui-monospace,Consolas,monospace}
 body.vid{--bg:#020702;--bg2:#09140a;--fg:#e6f5e8;--mut:#8db391;--ac:#22e06b;--ac2:#95ffbb;--bd:#143f20}
@@ -34,8 +34,8 @@ h3{font-size:1.05rem;margin-bottom:6px}
 .s1{border-color:#3b8cff;background:linear-gradient(160deg,#0a1636,#040a1c)}
 .s2{border-color:#a855f7;background:linear-gradient(160deg,#1a0b2c,#06030b)}
 .s3{border-color:#22e06b;background:linear-gradient(160deg,#0a1a0d,#020702)}
-.hero{padding:90px 0 60px;background:radial-gradient(ellipse at 70% 0,#2a2a31 0,transparent 60%)}
-.hero h1{background:linear-gradient(90deg,#fff,#8e929c 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{padding:90px 0 60px;background:radial-gradient(ellipse at 70% 0,#4a2108 0,transparent 60%)}
+.hero h1{background:linear-gradient(90deg,#fff,#ff9a3c 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero.cs h1,.hero.vid h1,.hero.cy h1{background:none;color:var(--fg)}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .links a{display:flex;flex-direction:column;padding:14px 16px;background:var(--bg2);border:1px solid var(--bd);border-radius:8px;color:var(--fg)}
@@ -111,3 +111,9 @@ dialog label{display:block;margin:12px 0 4px;font-size:.85rem;color:var(--mut)}
 dialog input,dialog textarea{width:100%;background:var(--bg);border:1px solid var(--bd);color:var(--fg);padding:9px;border-radius:6px;font:inherit}
 dialog .btn{cursor:pointer;background:none;font:inherit;margin-top:14px}dialog .btn.f{background:var(--ac)}
 .rm{display:none;margin-left:8px;background:none;border:0;color:#ff6b6b;cursor:pointer;font-size:1.1rem}body.dev .xtra .rm{display:inline}
+
+/* certificates + semester course lists */
+.th{display:block;margin-bottom:12px}.th img{width:100%;height:auto;display:block;border:1px solid var(--bd);border-radius:4px;filter:saturate(.85) brightness(.92);transition:transform .3s,filter .3s}.th:hover img{transform:scale(1.02);filter:none}
+.idn{font-size:.75rem;color:var(--mut);word-break:break-all;margin-top:6px}.note{font-size:.8rem;color:var(--mut);font-style:italic;margin-top:8px}
+.cl{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:8px}
+.cl li{border:1px solid var(--bd);border-radius:6px;padding:8px 12px;font-size:.9rem;color:var(--mut)}.cl li.hi{border-color:var(--ac);color:var(--ac2)}.tag.hi{border-color:var(--ac)}
